@@ -1,4 +1,4 @@
-package entrenasync.workoutsmicroservice.workoutDetails.dtos
+package entrenasync.workoutsmicroservice.rest.workoutDetails.dtos
 
 
 data class WorkoutDetailsResponse(

@@ -1,6 +1,6 @@
-package entrenasync.workoutsmicroservice.workout.repositories
+package entrenasync.workoutsmicroservice.rest.workout.repositories
 
-import entrenasync.workoutsmicroservice.workout.models.Workout
+import entrenasync.workoutsmicroservice.rest.workout.models.Workout
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor
 import org.springframework.stereotype.Repository

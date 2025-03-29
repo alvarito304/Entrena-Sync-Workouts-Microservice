@@ -1,6 +1,6 @@
-package entrenasync.workoutsmicroservice.workout.dtos
+package entrenasync.workoutsmicroservice.rest.workout.dtos
 
-import entrenasync.workoutsmicroservice.workoutDetails.dtos.WorkoutDetailsResponse
+import entrenasync.workoutsmicroservice.rest.workoutDetails.dtos.WorkoutDetailsResponse
 import java.time.LocalDate
 import java.time.LocalDateTime
 import kotlin.time.Duration

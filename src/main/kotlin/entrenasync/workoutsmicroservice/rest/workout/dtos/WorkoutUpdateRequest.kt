@@ -1,4 +1,4 @@
-package entrenasync.workoutsmicroservice.workout.dtos
+package entrenasync.workoutsmicroservice.rest.workout.dtos
 
 import jakarta.validation.constraints.*
 import kotlin.time.Duration

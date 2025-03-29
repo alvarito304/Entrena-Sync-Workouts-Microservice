@@ -1,11 +1,11 @@
-package entrenasync.workoutsmicroservice.workout.mappers
+package entrenasync.workoutsmicroservice.rest.workout.mappers
 
-import entrenasync.workoutsmicroservice.workout.dtos.WorkoutCreateRequest
-import entrenasync.workoutsmicroservice.workout.dtos.WorkoutResponse
-import entrenasync.workoutsmicroservice.workout.dtos.WorkoutUpdateRequest
-import entrenasync.workoutsmicroservice.workout.models.Workout
-import entrenasync.workoutsmicroservice.workoutDetails.mappers.toEntity
-import entrenasync.workoutsmicroservice.workoutDetails.mappers.toResponse
+import entrenasync.workoutsmicroservice.rest.workout.dtos.WorkoutCreateRequest
+import entrenasync.workoutsmicroservice.rest.workout.dtos.WorkoutResponse
+import entrenasync.workoutsmicroservice.rest.workout.dtos.WorkoutUpdateRequest
+import entrenasync.workoutsmicroservice.rest.workout.models.Workout
+import entrenasync.workoutsmicroservice.rest.workoutDetails.mappers.toEntity
+import entrenasync.workoutsmicroservice.rest.workoutDetails.mappers.toResponse
 import java.time.LocalDateTime
 
 

@@ -1,4 +1,4 @@
-package entrenasync.workoutsmicroservice.workoutDetails.dtos
+package entrenasync.workoutsmicroservice.rest.workoutDetails.dtos
 
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min

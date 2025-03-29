@@ -1,9 +1,9 @@
-package entrenasync.workoutsmicroservice.workoutDetails.mappers
+package entrenasync.workoutsmicroservice.rest.workoutDetails.mappers
 
 import com.example.demo.entity.WorkoutDetails
-import entrenasync.workoutsmicroservice.workoutDetails.dtos.WorkoutDetailsCreateRequest
-import entrenasync.workoutsmicroservice.workoutDetails.dtos.WorkoutDetailsResponse
-import entrenasync.workoutsmicroservice.workoutDetails.dtos.WorkoutDetailsUpdateRequest
+import entrenasync.workoutsmicroservice.rest.workoutDetails.dtos.WorkoutDetailsCreateRequest
+import entrenasync.workoutsmicroservice.rest.workoutDetails.dtos.WorkoutDetailsResponse
+import entrenasync.workoutsmicroservice.rest.workoutDetails.dtos.WorkoutDetailsUpdateRequest
 
 
 

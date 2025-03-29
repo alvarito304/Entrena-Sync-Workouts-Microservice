@@ -1,4 +1,4 @@
-package entrenasync.workoutsmicroservice.workout.models
+package entrenasync.workoutsmicroservice.rest.workout.models
 
 import com.example.demo.entity.WorkoutDetails
 import jakarta.persistence.*

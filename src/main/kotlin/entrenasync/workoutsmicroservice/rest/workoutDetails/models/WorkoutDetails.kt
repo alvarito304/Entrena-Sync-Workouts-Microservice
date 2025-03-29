@@ -1,6 +1,6 @@
 package com.example.demo.entity
 
-import entrenasync.workoutsmicroservice.workout.models.Workout
+import entrenasync.workoutsmicroservice.rest.workout.models.Workout
 import io.hypersistence.utils.hibernate.type.json.JsonType
 import jakarta.persistence.*
 import jakarta.validation.constraints.Max

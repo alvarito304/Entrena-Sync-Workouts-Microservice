@@ -1,6 +1,6 @@
-package entrenasync.workoutsmicroservice.workout.dtos
+package entrenasync.workoutsmicroservice.rest.workout.dtos
 
-import entrenasync.workoutsmicroservice.workoutDetails.dtos.WorkoutDetailsCreateRequest
+import entrenasync.workoutsmicroservice.rest.workoutDetails.dtos.WorkoutDetailsCreateRequest
 import jakarta.validation.constraints.*
 import java.time.LocalDate
 import kotlin.time.Duration
