@@ -7,23 +7,23 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import kotlin.time.Duration
 
-@Table(name = "Workouts")
+@Table(name = "workouts")
 @Entity
 data class Workout(
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     var id: Long?,
 
 
-    @field:Min(value = 3, message = "Minimum value for client name is 3")
-    @field:Max(value = 40, message = "Max value for client name is 40")
-    @field:NotBlank(message = "Client name must not be empty")
+    @field:Size(min = 3, max = 40, message = "Name must be between 3 and 40 characters")
+    @field:NotBlank(message = "Workout name must not be empty")
     var name: String,
 
 
     @field:NotNull(message = "trainingDuration must not be null")
     @field:Positive(message = "trainingDuration must be positive")
-    var trainingDuration: Duration,
+    /*Duration on Seconds*/
+    var trainingDuration: Long,
 
 
     @field:NotNull(message = "trainingCompletedDate must not be null")
@@ -37,7 +37,10 @@ data class Workout(
     /**
      * Relationships
      * */
-    @OneToOne(orphanRemoval = true)
+    @OneToOne(
+        cascade = [CascadeType.ALL], // Propaga operaciones a WorkoutDetails
+        orphanRemoval = true
+    )
     @JoinColumn(name = "workout_details_id", referencedColumnName = "id", nullable = false)
     var workoutDetails: WorkoutDetails
 

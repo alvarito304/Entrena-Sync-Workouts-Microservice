@@ -2,12 +2,12 @@ package entrenasync.workoutsmicroservice.rest.workoutDetails.dtos
 
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min
+import jakarta.validation.constraints.Size
 
 
 class WorkoutDetailsCreateRequest(
 
-    @field:Min(value = 5, message = "Workout details description must be at least 5 characters")
-    @field:Max(value = 255, message = "Workout description must be at most 255 characters")
+    @field:Size(min = 3, max = 40, message = "Name must be between 3 and 40 characters")
     val description: String,
 
     @field:Min(value = 0)

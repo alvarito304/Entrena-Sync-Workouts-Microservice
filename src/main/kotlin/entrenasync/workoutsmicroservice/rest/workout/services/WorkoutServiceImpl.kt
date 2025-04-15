@@ -23,10 +23,10 @@ class WorkoutServiceImpl @Autowired constructor(private val workoutRepository: I
 
     private val log: Logger = LoggerFactory.getLogger(WorkoutServiceImpl::class.java)
 
-    /*override fun getWorkouts(pageable: Pageable): Page<WorkoutResponse> {
+    override fun getWorkouts(pageable: Pageable): Page<WorkoutResponse> {
         log.info("Getting all Workouts")
         return workoutRepository.findAll(pageable).map { workout -> workout.toResponse() }
-    }*/
+    }
 
     override fun getWorkouts(
         name: String?,

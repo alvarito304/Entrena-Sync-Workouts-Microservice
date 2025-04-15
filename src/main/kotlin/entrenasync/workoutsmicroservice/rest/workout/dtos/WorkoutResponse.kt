@@ -11,7 +11,7 @@ data class WorkoutResponse(
 
     var name: String,
 
-    var trainingDuration: Duration,
+    var trainingDuration: Long,
 
     var trainingCompletedDate: LocalDate,
 

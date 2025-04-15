@@ -29,7 +29,7 @@ import java.time.LocalDateTime
             trainingCompletedDate = oldWorkout.trainingCompletedDate,
             createdAt = oldWorkout.createdAt,
             updatedAt = LocalDateTime.now(),
-            workoutDetails = oldWorkout.workoutDetails
+            workoutDetails = this.workoutDetails!!.toEntity(oldWorkout.workoutDetails),
         )
     }
 

@@ -1,6 +1,7 @@
 package entrenasync.workoutsmicroservice.rest.workout.services.specifications
 
 import entrenasync.workoutsmicroservice.rest.workout.models.Workout
+import org.springframework.context.annotation.Bean
 import org.springframework.data.jpa.domain.Specification
 import java.time.LocalDate
 import kotlin.time.Duration

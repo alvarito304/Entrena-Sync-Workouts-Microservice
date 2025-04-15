@@ -6,15 +6,14 @@ import java.time.LocalDate
 import kotlin.time.Duration
 
 data class WorkoutCreateRequest(
-    @field:Min(value = 3, message = "Minimum value for client name is 3")
-    @field:Max(value = 40, message = "Max value for client name is 40")
+    @field:Size(min = 3, max = 40, message = "Name must be between 3 and 40 characters")
     @field:NotBlank(message = "Client name must not be empty")
     var name: String,
 
 
     @field:NotNull(message = "trainingDuration must not be null")
     @field:Positive(message = "trainingDuration must be positive")
-    var trainingDuration: Duration,
+    var trainingDuration: Long,
 
 
     @field:NotNull(message = "trainingCompletedDate must not be null")

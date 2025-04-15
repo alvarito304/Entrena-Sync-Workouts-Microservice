@@ -19,7 +19,7 @@ import entrenasync.workoutsmicroservice.rest.workoutDetails.dtos.WorkoutDetailsU
 
     fun WorkoutDetailsUpdateRequest.toEntity(oldWorkoutDetails: WorkoutDetails): WorkoutDetails{
         return WorkoutDetails(
-            id = null,
+            id = oldWorkoutDetails.id,
             description = this.description ?: oldWorkoutDetails.description,
             intensity = this.intensity ?: oldWorkoutDetails.intensity,
             exerciseListId = this.exerciseListId ?: oldWorkoutDetails.exerciseListId,

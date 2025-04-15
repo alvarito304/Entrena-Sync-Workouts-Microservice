@@ -5,17 +5,17 @@ import io.hypersistence.utils.hibernate.type.json.JsonType
 import jakarta.persistence.*
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min
+import jakarta.validation.constraints.Size
 import org.hibernate.annotations.Type
 
 @Entity
-@Table(name = "WorkoutDetails")
+@Table(name = "workoutdetails")
 data class WorkoutDetails(
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long?,
 
-    @field:Min(value = 5, message = "Workout details description must be at least 5 characters")
-    @field:Max(value = 255, message = "Workout description must be at most 255 characters")
+    @field:Size(min = 5, max = 255, message = "Description must be between 5 and 255 characters")
     var description: String = "",
 
     @field:Min(value = 0)
@@ -39,6 +39,9 @@ data class WorkoutDetails(
     /**
      * Relationships
      * */
-    @OneToOne(mappedBy = "workoutDetails", orphanRemoval = true)
+    @OneToOne(
+        mappedBy = "workoutDetails",
+        orphanRemoval = true
+    )
     var workout: Workout? = null
 )

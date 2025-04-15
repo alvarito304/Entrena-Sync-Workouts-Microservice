@@ -5,6 +5,7 @@ import entrenasync.workoutsmicroservice.rest.workout.dtos.WorkoutResponse
 import entrenasync.workoutsmicroservice.rest.workout.dtos.WorkoutUpdateRequest
 import entrenasync.workoutsmicroservice.rest.workout.services.IWorkoutService
 import jakarta.validation.Valid
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort.Direction
@@ -24,21 +25,29 @@ import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder
 import java.time.LocalDate
 import kotlin.time.Duration
+import org.springframework.data.domain.Sort;
 
 @RestController
 @RequestMapping("/Workouts")
-class WorkoutController(private val workoutService : IWorkoutService) {
+class WorkoutController @Autowired constructor(private val workoutService : IWorkoutService) {
 
     @GetMapping
     fun getAllWorkouts(
         @RequestParam(defaultValue = "0") page: Int,
         @RequestParam(defaultValue = "10") size: Int,
-        @RequestParam(defaultValue = "ASC") direction: Direction,
+        @RequestParam(defaultValue = "id") sortBy: String,
+        @RequestParam(defaultValue = "ASC") direction: String,
         @RequestParam(required = false) name: String?,
         @RequestParam(required = false) trainingDuration: Duration?,
         @RequestParam(required = false) trainingCompletedDate: LocalDate?
     ) : ResponseEntity<Page<WorkoutResponse>>{
-        val pageable = PageRequest.of(page, size, by(direction))
+
+        val sort = if (direction.equals("ASC", ignoreCase = true)) {
+            Sort.by(sortBy).ascending()
+        } else {
+            Sort.by(sortBy).descending()
+        }
+        val pageable = PageRequest.of(page, size, sort)
         val pageResult =  workoutService.getWorkouts(name, trainingDuration, trainingCompletedDate, pageable)
 
         val uriBuilder = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -80,7 +89,7 @@ class WorkoutController(private val workoutService : IWorkoutService) {
         )
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     fun deleteWorkout(@PathVariable id: Long): ResponseEntity.HeadersBuilder<*> {
         workoutService.deleteWorkout(id)
         return ResponseEntity.noContent()
