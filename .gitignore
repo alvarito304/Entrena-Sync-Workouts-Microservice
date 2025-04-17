@@ -41,5 +41,3 @@ out/
 
 
 .env
-
-docker-compose.yml
