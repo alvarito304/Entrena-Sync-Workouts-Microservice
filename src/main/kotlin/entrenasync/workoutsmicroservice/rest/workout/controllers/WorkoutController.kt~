@@ -92,7 +92,7 @@ class WorkoutController @Autowired constructor(private val workoutService : IWor
     @DeleteMapping("/{id}")
     fun deleteWorkout(@PathVariable id: Long) : ResponseEntity<Void>{
         workoutService.deleteWorkout(id)
-        return ResponseEntity.noContent().build()
+        return ResponseEntity.noContent()
     }
 
 }

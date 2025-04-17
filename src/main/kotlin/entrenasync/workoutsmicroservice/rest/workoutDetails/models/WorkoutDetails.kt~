@@ -41,6 +41,7 @@ data class WorkoutDetails(
      * */
     @OneToOne(
         mappedBy = "workoutDetails",
+        orphanRemoval = true,
         fetch = FetchType.LAZY,
     )
     var workout: Workout? = null

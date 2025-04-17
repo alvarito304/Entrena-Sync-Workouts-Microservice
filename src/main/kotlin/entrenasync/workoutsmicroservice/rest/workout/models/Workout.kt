@@ -39,7 +39,9 @@ data class Workout(
      * */
     @OneToOne(
         cascade = [CascadeType.ALL], // Propaga operaciones a WorkoutDetails
-        orphanRemoval = true
+        orphanRemoval = true,
+        fetch = FetchType.LAZY,
+        optional = false
     )
     @JoinColumn(name = "workout_details_id", referencedColumnName = "id", nullable = false)
     var workoutDetails: WorkoutDetails
