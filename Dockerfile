@@ -20,6 +20,11 @@ FROM openjdk:21 AS run
 WORKDIR /app
 
 COPY --from=build /app/build/libs/*.jar /app/my-app.jar
+#COPY --from=build /app/build/docs /app/doc
+#COPY --from=build /app/despliegueServers /app/despliegueServers
+#COPY --from=build /app/build/jacoco /app/jacoco
+#COPY --from=build /app/build/reports/tests /app/tests
+# Expone el puerto 3000
 EXPOSE 8080
 
 ENTRYPOINT ["java","-jar","-Dspring.profiles.active=prod","/app/my-app.jar"]

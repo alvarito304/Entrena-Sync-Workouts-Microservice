@@ -27,4 +27,4 @@ COPY --from=build /app/build/libs/*.jar /app/my-app.jar
 # Expone el puerto 3000
 EXPOSE 8080
 
-ENTRYPOINT ["java","-jar","-Dspring.profiles.active=prod","/app/my-app.jar"]
+ENTRYPOINT ["java","-jar","-Dspring.profiles.active=dev","/app/my-app.jar"]
