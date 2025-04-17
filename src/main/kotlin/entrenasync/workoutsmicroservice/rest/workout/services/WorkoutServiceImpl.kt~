@@ -52,7 +52,7 @@ class WorkoutServiceImpl @Autowired constructor(private val workoutRepository: I
         return workoutRepository.findById(id).orElseThrow{ WorkoutNotFoundException(id) }.toResponse()
     }
 
-    @CachePut(key = "#result.id")
+   // @CachePut(key = "#result.id")
     override fun createWorkout(workout: WorkoutCreateRequest): WorkoutResponse {
         log.info("Creating Workout")
         return workoutRepository.save(workout.toEntity()).toResponse()
