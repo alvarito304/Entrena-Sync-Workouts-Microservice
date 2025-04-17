@@ -24,7 +24,7 @@ import kotlin.time.Duration
 
 @Service
 @CacheConfig(cacheNames = ["workouts"])
-class WorkoutServiceImpl @Autowired constructor(private val workoutRepository: IWorkoutRepository) : IWorkoutService {
+class WorkoutServiceImpl (private val workoutRepository: IWorkoutRepository) : IWorkoutService {
 
     private val log: Logger = LoggerFactory.getLogger(WorkoutServiceImpl::class.java)
 

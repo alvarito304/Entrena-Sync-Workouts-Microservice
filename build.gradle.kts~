@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    testRuntimeOnly("com.h2database:h2")
+
     // cache
     implementation("org.springframework.boot:spring-boot-starter-cache")
 
