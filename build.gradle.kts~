@@ -21,6 +21,9 @@ repositories {
 
 dependencies {
 
+    // cache
+    implementation("org.springframework.boot:spring-boot-starter-cache")
+
     //jpa database (PostgreSQL)
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
