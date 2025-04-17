@@ -24,6 +24,16 @@ dependencies {
     //jpa database (PostgreSQL)
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
+    // Logback por defecto
+    implementation("org.springframework.boot:spring-boot-starter-logging")
+    implementation("org.slf4j:slf4j-api:2.0.9")
+
+    //mapeo de columnas de hstore(funcionalidad de postgres) a map
+    // https://mvnrepository.com/artifact/com.vladmihalcea/hibernate-types-60
+    implementation("io.hypersistence:hypersistence-utils-hibernate-63:3.9.5")
+    implementation("org.postgresql:postgresql:42.7.5")
+    implementation("org.hibernate.orm:hibernate-core:6.6.0.Final")
+
     //web
     implementation("org.springframework.boot:spring-boot-starter-web")
 

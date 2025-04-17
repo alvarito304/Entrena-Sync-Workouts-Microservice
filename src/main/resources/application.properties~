@@ -1,5 +1,5 @@
 spring.application.name=Workouts-MicroService
-spring.datasource.url=jdbc:postgresql://${WORKOUTS-HOSTNAME}.frankfurt-postgres.render.com/workoutsbd
+spring.datasource.url=jdbc:postgresql://${WORKOUTS-HOSTNAME}.frankfurt-postgres.render.com/workoutsdb_don
 spring.datasource.username=${WORKOUTS-USERNAME}
 spring.datasource.password=${WORKOUTS-PASSWORD}
 
