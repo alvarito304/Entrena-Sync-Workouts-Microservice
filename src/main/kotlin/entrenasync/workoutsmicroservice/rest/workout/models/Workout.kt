@@ -30,6 +30,9 @@ data class Workout(
     @field:PastOrPresent(message = "trainingCompletedDate must be past or present")
     var trainingCompletedDate: LocalDate,
 
+    @field:NotNull(message = "completed must not be null")
+    var completed: Boolean = false,
+
     var createdAt: LocalDateTime = LocalDateTime.now(),
 
     var updatedAt: LocalDateTime = LocalDateTime.now(),

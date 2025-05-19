@@ -15,6 +15,7 @@ import java.time.LocalDateTime
             name = this.name,
             trainingDuration = this.trainingDuration,
             trainingCompletedDate = this.trainingCompletedDate,
+            completed = this.completed,
             createdAt = LocalDateTime.now(),
             updatedAt = LocalDateTime.now(),
             workoutDetails = this.workoutDetails.toEntity()
@@ -27,6 +28,7 @@ import java.time.LocalDateTime
             name = this.name ?: oldWorkout.name,
             trainingDuration = this.trainingDuration ?: oldWorkout.trainingDuration,
             trainingCompletedDate = oldWorkout.trainingCompletedDate,
+            completed = this.completed ?: oldWorkout.completed,
             createdAt = oldWorkout.createdAt,
             updatedAt = LocalDateTime.now(),
             workoutDetails = this.workoutDetails!!.toEntity(oldWorkout.workoutDetails),
@@ -40,6 +42,7 @@ import java.time.LocalDateTime
             name = this.name,
             trainingDuration = this.trainingDuration,
             trainingCompletedDate = this.trainingCompletedDate,
+            completed = this.completed,
             createdAt = this.createdAt,
             updatedAt = this.updatedAt,
             workoutDetails = this.workoutDetails.toResponse()

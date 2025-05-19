@@ -15,6 +15,8 @@ data class WorkoutResponse(
 
     var trainingCompletedDate: LocalDate,
 
+    var completed: Boolean,
+
     var createdAt: LocalDateTime,
 
     var updatedAt: LocalDateTime,

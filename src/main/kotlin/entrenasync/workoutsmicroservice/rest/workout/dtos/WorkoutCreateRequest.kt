@@ -21,5 +21,8 @@ data class WorkoutCreateRequest(
     var trainingCompletedDate: LocalDate,
 
     @field:NotNull(message = "workoutDetails can not be null")
-    var workoutDetails: WorkoutDetailsCreateRequest
+    var workoutDetails: WorkoutDetailsCreateRequest,
+
+    @field:NotNull(message = "completed must not be null")
+    var completed: Boolean = false,
 )
