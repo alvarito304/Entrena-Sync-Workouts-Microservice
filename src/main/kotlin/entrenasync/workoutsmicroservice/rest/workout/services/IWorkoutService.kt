@@ -10,7 +10,7 @@ import kotlin.time.Duration
 
 interface IWorkoutService {
     fun getWorkouts(pageable: Pageable): Page<WorkoutResponse>
-    fun getWorkouts(name: String?, trainingDuration: Duration?, trainingCompletedDate: LocalDate?, pageable: Pageable): Page<WorkoutResponse>
+    fun getWorkouts(completed: Boolean?, ids: List<Long>?, name: String?, trainingDuration: Duration?, trainingCompletedDate: LocalDate?, pageable: Pageable): Page<WorkoutResponse>
     fun getWorkoutById(id: Long) : WorkoutResponse
     fun createWorkout(workout: WorkoutCreateRequest) : WorkoutResponse
     fun updateWorkout(id: Long, workoutToUpdate: WorkoutUpdateRequest): WorkoutResponse

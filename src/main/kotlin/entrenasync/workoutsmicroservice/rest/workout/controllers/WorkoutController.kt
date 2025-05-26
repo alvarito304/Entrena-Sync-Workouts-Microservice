@@ -30,9 +30,11 @@ class WorkoutController @Autowired constructor(private val workoutService : IWor
         @RequestParam(defaultValue = "10") size: Int,
         @RequestParam(defaultValue = "id") sortBy: String,
         @RequestParam(defaultValue = "ASC") direction: String,
+        @RequestParam(required = false) ids: List<Long>?,
         @RequestParam(required = false) name: String?,
         @RequestParam(required = false) trainingDuration: Duration?,
-        @RequestParam(required = false) trainingCompletedDate: LocalDate?
+        @RequestParam(required = false) trainingCompletedDate: LocalDate?,
+        @RequestParam(required = false) completed: Boolean?
     ) : ResponseEntity<Page<WorkoutResponse>>{
 
         val sort = if (direction.equals("ASC", ignoreCase = true)) {
@@ -41,7 +43,7 @@ class WorkoutController @Autowired constructor(private val workoutService : IWor
             Sort.by(sortBy).descending()
         }
         val pageable = PageRequest.of(page, size, sort)
-        val pageResult =  workoutService.getWorkouts(name, trainingDuration, trainingCompletedDate, pageable)
+        val pageResult =  workoutService.getWorkouts(completed, ids, name, trainingDuration, trainingCompletedDate, pageable)
 
         val uriBuilder = ServletUriComponentsBuilder.fromCurrentRequest()
         val headers = HttpHeaders()
