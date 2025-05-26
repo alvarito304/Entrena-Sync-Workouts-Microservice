@@ -30,4 +30,20 @@ object WorkoutSpecifications {
             }
         }
     }
+
+    fun hasIds(ids: List<Long>?) : Specification<Workout>? {
+        return ids?.let {
+            Specification { root, query, criteriaBuilder ->
+                root.get<Long>("id").`in`(ids)
+            }
+        }
+    }
+
+    fun hasCompleted(completed: Boolean?) : Specification<Workout>? {
+        return completed?.let {
+            Specification { root, query, criteriaBuilder ->
+                criteriaBuilder.equal(root.get<Boolean>("completed"), it)
+            }
+        }
+    }
 }

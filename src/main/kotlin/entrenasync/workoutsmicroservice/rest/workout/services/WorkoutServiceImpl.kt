@@ -34,17 +34,22 @@ class WorkoutServiceImpl @Autowired constructor(private val workoutRepository: I
     }
 
     override fun getWorkouts(
+        completed: Boolean?,
+        ids: List<Long>?,
         name: String?,
         trainingDuration: Duration?,
         trainingCompletedDate: LocalDate?,
         pageable: Pageable
     ): Page<WorkoutResponse> {
         log.info("Getting all Workouts with specifications")
-        val spec = Specification.where(WorkoutSpecifications.hasName(name))
+        val spec = Specification.where(WorkoutSpecifications.hasIds(ids))
+            ?.and(WorkoutSpecifications.hasName(name))
             ?.and(WorkoutSpecifications.hasTrainingDuration(trainingDuration))
             ?.and(WorkoutSpecifications.hasTrainingCompletedDate(trainingCompletedDate))
+            ?.and(WorkoutSpecifications.hasCompleted(completed))
         return workoutRepository.findAll(spec, pageable).map { it.toResponse() }
     }
+
 
     @Cacheable(key = "#id")
     override fun getWorkoutById(id: Long): WorkoutResponse {

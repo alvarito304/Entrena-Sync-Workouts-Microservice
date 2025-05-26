@@ -14,6 +14,8 @@ data class WorkoutUpdateRequest(
     @field:Positive(message = "trainingDuration must be positive")
     var trainingDuration: Long? = null,
 
-    var workoutDetails: WorkoutDetailsUpdateRequest?
+    var workoutDetails: WorkoutDetailsUpdateRequest?,
+
+    var completed: Boolean? = null,
 
 )

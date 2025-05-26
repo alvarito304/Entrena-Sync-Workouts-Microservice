@@ -13,22 +13,15 @@ import org.springframework.data.domain.Sort.by
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.DeleteMapping
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder
 import java.time.LocalDate
 import kotlin.time.Duration
 import org.springframework.data.domain.Sort;
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/Workouts")
+@CrossOrigin(origins = ["http://localhost:4200"])
 class WorkoutController @Autowired constructor(private val workoutService : IWorkoutService) {
 
     @GetMapping
@@ -37,9 +30,11 @@ class WorkoutController @Autowired constructor(private val workoutService : IWor
         @RequestParam(defaultValue = "10") size: Int,
         @RequestParam(defaultValue = "id") sortBy: String,
         @RequestParam(defaultValue = "ASC") direction: String,
+        @RequestParam(required = false) ids: List<Long>?,
         @RequestParam(required = false) name: String?,
         @RequestParam(required = false) trainingDuration: Duration?,
-        @RequestParam(required = false) trainingCompletedDate: LocalDate?
+        @RequestParam(required = false) trainingCompletedDate: LocalDate?,
+        @RequestParam(required = false) completed: Boolean?
     ) : ResponseEntity<Page<WorkoutResponse>>{
 
         val sort = if (direction.equals("ASC", ignoreCase = true)) {
@@ -48,7 +43,7 @@ class WorkoutController @Autowired constructor(private val workoutService : IWor
             Sort.by(sortBy).descending()
         }
         val pageable = PageRequest.of(page, size, sort)
-        val pageResult =  workoutService.getWorkouts(name, trainingDuration, trainingCompletedDate, pageable)
+        val pageResult =  workoutService.getWorkouts(completed, ids, name, trainingDuration, trainingCompletedDate, pageable)
 
         val uriBuilder = ServletUriComponentsBuilder.fromCurrentRequest()
         val headers = HttpHeaders()
