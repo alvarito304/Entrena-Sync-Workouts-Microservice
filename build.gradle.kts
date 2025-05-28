@@ -51,6 +51,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("io.mockk:mockk:1.13.5")
+    testImplementation("com.ninja-squad:springmockk:4.0.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
