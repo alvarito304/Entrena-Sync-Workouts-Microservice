@@ -1,4 +1,4 @@
-package com.example.demo.entity
+package entrenasync.workoutsmicroservice.rest.workoutDetails.models
 
 import entrenasync.workoutsmicroservice.rest.workout.models.Workout
 import io.hypersistence.utils.hibernate.type.json.JsonType

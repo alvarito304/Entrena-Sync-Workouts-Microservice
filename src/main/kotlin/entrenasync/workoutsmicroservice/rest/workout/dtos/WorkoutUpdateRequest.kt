@@ -1,6 +1,5 @@
 package entrenasync.workoutsmicroservice.rest.workout.dtos
 
-import com.example.demo.entity.WorkoutDetails
 import entrenasync.workoutsmicroservice.rest.workoutDetails.dtos.WorkoutDetailsUpdateRequest
 import jakarta.validation.constraints.*
 import kotlin.time.Duration
