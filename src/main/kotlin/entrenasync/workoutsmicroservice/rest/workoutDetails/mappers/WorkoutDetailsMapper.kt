@@ -1,13 +1,12 @@
 package entrenasync.workoutsmicroservice.rest.workoutDetails.mappers
 
-import com.example.demo.entity.WorkoutDetails
 import entrenasync.workoutsmicroservice.rest.workoutDetails.dtos.WorkoutDetailsCreateRequest
 import entrenasync.workoutsmicroservice.rest.workoutDetails.dtos.WorkoutDetailsResponse
 import entrenasync.workoutsmicroservice.rest.workoutDetails.dtos.WorkoutDetailsUpdateRequest
+import entrenasync.workoutsmicroservice.rest.workoutDetails.models.WorkoutDetails
 
 
-
-    fun WorkoutDetailsCreateRequest.toEntity(): WorkoutDetails{
+fun WorkoutDetailsCreateRequest.toEntity(): WorkoutDetails {
         return WorkoutDetails(
             id = null,
             description = this.description,

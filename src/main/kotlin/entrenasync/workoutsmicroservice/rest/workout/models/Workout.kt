@@ -1,6 +1,6 @@
 package entrenasync.workoutsmicroservice.rest.workout.models
 
-import com.example.demo.entity.WorkoutDetails
+import entrenasync.workoutsmicroservice.rest.workoutDetails.models.WorkoutDetails
 import jakarta.persistence.*
 import jakarta.validation.constraints.*
 import java.time.LocalDate
