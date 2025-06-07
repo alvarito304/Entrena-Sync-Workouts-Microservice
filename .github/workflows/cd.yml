@@ -1,0 +1,22 @@
+name: CD Pipeline
+
+on:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Descargar última versión de la imagen
+        run: |
+          sudo docker-compose -f ../../Docker.Compose.yml pull entrena-sync-workouts-microservice
+
+      - name: Deploy con docker-compose (working-directory)
+        run: sudo docker-compose -f ../../Docker.Compose.yml --env-file ../../.env.apigetaway -p entrena-sync up -d entrena-sync-workouts-microservice --build
